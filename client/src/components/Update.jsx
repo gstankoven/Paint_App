@@ -1,14 +1,16 @@
 import React, {useState} from 'react'
+import axios from "axios"
 import './component.css'
 
 
 function Update(props) {
 
-    const [colour, setColour] = useState('Blue')
+    let [colour] = useState('Blue')
+    let [status] = useState('out')
 
 
     const changeButton = () => {
-        console.log('Change colours')
+        axios.put(`http://localhost:3001/api/update/${colour}/${status}`)
     }
 
     return (
@@ -17,7 +19,7 @@ function Update(props) {
 
             <span>The paint to be changed</span>
             <div className='select'>
-            <select onChange={() => {}} name="colours" id="colours">
+            <select onChange={(e) => {colour = e.target.value}} name="colours" id="colours">
                 <option value="Blue">Blue</option>
                 <option value="Grey">Grey</option>
                 <option value="Black">Black</option>
@@ -26,12 +28,12 @@ function Update(props) {
             </select>
             </div>
 
-            <span>The new paint availability</span>
+            <span>The new paint's availability</span>
             <div className='select'>
-            <select onChange={() => {}} name="stock" id="stock">
-                <option value="Blue">Out of stock</option>
-                <option value="Grey">Running low</option>
-                <option value="Black">Available</option>
+            <select onChange={(e) => {status = e.target.value}} name="stock" id="stock">
+                <option value="out">Out of stock</option>
+                <option value="low">Running low</option>
+                <option value="available">Available</option>
             </select>
             </div>
 
