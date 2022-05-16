@@ -1,8 +1,10 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './component.css'
 
 
 function Update(props) {
+
+    const [colour, setColour] = useState('Blue')
 
 
     const changeButton = () => {
@@ -13,9 +15,9 @@ function Update(props) {
         <div>
             <button className='back_button' onClick={() => {props.setupdate(false)}}>Back</button>
 
-            <span>Paint to be changed</span>
+            <span>The paint to be changed</span>
             <div className='select'>
-            <select name="colours" id="colours">
+            <select onChange={() => {}} name="colours" id="colours">
                 <option value="Blue">Blue</option>
                 <option value="Grey">Grey</option>
                 <option value="Black">Black</option>
@@ -24,9 +26,9 @@ function Update(props) {
             </select>
             </div>
 
-            <span>New paint availability</span>
+            <span>The new paint availability</span>
             <div className='select'>
-            <select name="stock" id="stock">
+            <select onChange={() => {}} name="stock" id="stock">
                 <option value="Blue">Out of stock</option>
                 <option value="Grey">Running low</option>
                 <option value="Black">Available</option>
