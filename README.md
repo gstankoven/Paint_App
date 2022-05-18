@@ -1,0 +1,1 @@
+Contains the client and server code for the stock status paint web application.

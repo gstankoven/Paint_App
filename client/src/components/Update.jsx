@@ -5,17 +5,21 @@ import './component.css'
 
 function Update(props) {
 
+    //used for the colour dropdown select
     let [colour] = useState('Blue')
+    //used for the stock status dropdown select
     let [status] = useState('out')
+    //used for the stock status dropdown select
+    let [comment] = useState('na')
 
-
+    //sends a put to the api to change a colours stock status
     const changeButton = () => {
-        axios.put(`http://localhost:3001/api/update/${colour}/${status}`)
+        axios.put(`http://localhost:3001/api/update/${colour}/${status}/${comment}`)
     }
 
     return (
         <div>
-            <button className='back_button' onClick={() => {props.setupdate(false)}}>Back</button>
+            <button className='back_button' onClick={() => {props.setupdate(false);}}>Back</button>
 
             <span>The paint to be changed</span>
             <div className='select'>
@@ -35,6 +39,11 @@ function Update(props) {
                 <option value="low">Running low</option>
                 <option value="available">Available</option>
             </select>
+            </div>
+
+            <div className='comment_container'>
+                <span>Comments:</span>
+                <textarea className='comment_text' onChange={(e) => {comment = e.target.value}}></textarea>
             </div>
 
             <button onClick={() => {props.setupdate(false); changeButton()}}>Change</button>

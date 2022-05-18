@@ -5,27 +5,28 @@ import Colour from './Colour'
 
 function Kanban(props) {
 
-    //uses a get call to the api to get the initial colour availabilites
-    useEffect(() => {
-        axios.get('http://localhost:3001/api')
-        .then(res => {
-            //get the data from the API
-            let data = res.data
-            //create variable to use for updateStock (setStock)
-            let colours = {out: [], low: [], available: []}
+    // //uses a get call to the api to get the initial colour availabilites
+    // useEffect(() => {
+    //     axios.get('http://localhost:3001/api')
+    //     .then(res => {
+    //         //get the data from the API
+    //         let data = res.data[0]
+    //         //create variable to use for updateStock (setStock)
+    //         let colours = {out: [], low: [], available: []}
 
-            //add to the colours object and set it
-            //console.log(data)
-            colours[data.Blue].push('Blue')
-            colours[data.Grey].push('Grey')
-            colours[data.Black].push('Black')
-            colours[data.White].push('White')
-            colours[data.Purple].push('Purple')
-            props.updateStock(colours)
+    //         //add to the colours object and set it
+    //         colours[data.Blue].push('Blue')
+    //         colours[data.Grey].push('Grey')
+    //         colours[data.Black].push('Black')
+    //         colours[data.White].push('White')
+    //         colours[data.Purple].push('Purple')
+    //         props.updateStock(colours)
 
-        })
+    //         //get the new info for "Recent Activity"
 
-    }, [])
+    //     })
+
+    // }, [])
 
     //Displays the paint colours in the appropriate swim lane of the Kanban chart
     //uses the Colour component
@@ -35,6 +36,7 @@ function Kanban(props) {
         let display = []
 
         if(category === 'out'){
+            //displays the "Out of stock" swim lane
 
             for(let i=0; i<stock.out.length; i++){
                 display.push(<Colour key={`o${i}`} colour={stock.out[i]} />)
@@ -43,6 +45,7 @@ function Kanban(props) {
             return display
 
         }else if(category === 'low'){
+            //displays the "Running low" swim lane
 
             for(let i=0; i<stock.low.length; i++){
                 display.push(<Colour key={`l${i}`} colour={stock.low[i]} />)
@@ -51,6 +54,7 @@ function Kanban(props) {
             return display
 
         }else{
+            //displays the "Available" swim lane
 
             for(let i=0; i<stock.available.length; i++){
                 display.push(<Colour key={`a${i}`} colour={stock.available[i]} />)
