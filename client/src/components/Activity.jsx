@@ -39,16 +39,16 @@ function Activity(props) {
             <div style={{width: '100%', overflow: 'auto'}}>
                 <div style={{width: 'max(100%, 900px)'}}>
                     <span style={{width: '12%', margin: '0', display: 'inline-block', borderLeft: '1px solid black', borderTop: '1px solid black', 
-                        fontSize: '16px', fontWeight: 'bold'}}>Colour</span>
+                        borderBottom: '1px solid black', fontSize: '16px', fontWeight: 'bold'}}>Colour</span>
 
                     <span style={{width: '15%', margin: '0', display: 'inline-block', borderLeft: '1px solid black', borderTop: '1px solid black', 
-                        fontSize: '16px', fontWeight: 'bold'}}>Status</span>
+                        borderBottom: '1px solid black', fontSize: '16px', fontWeight: 'bold'}}>Status</span>
 
                     <span style={{width: '25%', margin: '0', display: 'inline-block', borderLeft: '1px solid black', borderTop: '1px solid black', 
-                        fontSize: '16px', fontWeight: 'bold'}}>Time</span>
+                        borderBottom: '1px solid black', fontSize: '16px', fontWeight: 'bold'}}>Time</span>
 
                     <span style={{width: '45%', margin: '0', display: 'inline-block', borderLeft: '1px solid black', borderTop: '1px solid black', 
-                        borderRight: '1px solid black', fontSize: '16px', fontWeight: 'bold'}}>Comment</span>
+                        borderBottom: '1px solid black', borderRight: '1px solid black', fontSize: '16px', fontWeight: 'bold'}}>Comment</span>
                     
                     {/* display all of the info for recent activity */}
                     {displayActivity()}

@@ -13,7 +13,8 @@ function App() {
 
   //uses a get call to the api to get the initial colour availabilites
   useEffect(() => {
-    axios.get('https://garretts-paint-app.herokuapp.com/api')
+    //axios.get('http://localhost:3001/api')
+    axios.get('https://garretts-paint-server.herokuapp.com/api')
     .then(res => {
         //get the data from the API
         let data = res.data[0]
@@ -31,6 +32,7 @@ function App() {
         //get the new info for "Recent Activity"
         data = res.data[1]
         setInfo([...data])
+        console.log(colours)
     })
 
 }, [updatePage])

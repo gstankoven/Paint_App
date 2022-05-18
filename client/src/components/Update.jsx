@@ -10,13 +10,18 @@ function Update(props) {
     //used for the stock status dropdown select
     let [status] = useState('out')
     //used for the stock status dropdown select
-    let [comment] = useState('na')
+    let [comment] = useState('n/a')
 
     //sends a put to the api to change a colours stock status
     const changeButton = () => {
 
-        axios.put(`https://garretts-paint-app.herokuapp.com/api/update/${colour}/${status}/${encodeURIComponent(comment)}`)
-        .catch(error => console.log(error) )
+        //axios.put(`http://localhost:3001/api/update/${colour}/${status}/${encodeURIComponent(comment)}`)
+        axios.put(`https://garretts-paint-server.herokuapp.com/api/update/${colour}/${status}/${encodeURIComponent(comment)}`)
+        .then(res => {
+            if(res.status === 200){
+                props.setupdate(false)
+            }
+        })
 
     }
 
@@ -55,7 +60,7 @@ function Update(props) {
             </div>
             
             {/* Submits the change to the colours stock */}
-            <button onClick={() => {props.setupdate(false); changeButton()}}>Change</button>
+            <button onClick={() => {changeButton();}}>Change</button>
         </div>
     );
 }
