@@ -10,7 +10,7 @@ app.use(express.json())
 let colours = {Blue: 'available', Grey: 'available', Black: 'available', White: 'low', Purple: 'out'}
 let info = []
 
-//Get request to the api sending the colour's stock as well as the recent activity info
+//Get request to the api sending the colour's stock as well as the recent activity information
 app.get('/api', (req, res) => {
     res.status(200).send([colours, info])
 })
