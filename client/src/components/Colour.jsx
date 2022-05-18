@@ -1,5 +1,6 @@
 import React from 'react'
 
+//returns the visual colour as well as the text to the kanban chart in the appropriate swim lane
 function Colour(props) {
     return (
         <div style={{width: '100%', height: '20%', marginLeft: '5%'}}>
