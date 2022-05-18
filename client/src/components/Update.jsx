@@ -15,7 +15,7 @@ function Update(props) {
     //sends a put to the api to change a colours stock status
     const changeButton = () => {
 
-        axios.put(`http://localhost:3001/api/update/${colour}/${status}/${encodeURIComponent(comment)}`)
+        axios.put(`https://garretts-paint-app.herokuapp.com/api/update/${colour}/${status}/${encodeURIComponent(comment)}`)
         .catch(error => console.log(error) )
 
     }
