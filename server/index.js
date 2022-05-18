@@ -37,4 +37,4 @@ app.put('/api/update/:colour/:status/:comment', (req, res) => {
 
 
 const PORT = 3001
-app.listen(process.env.PORT || PORT, () => {console.log(`Listening on port ${port}`)})
+app.listen(process.env.PORT || PORT, () => {console.log(`Listening on port ${PORT}`)})
