@@ -32,7 +32,6 @@ function App() {
         //get the new info for "Recent Activity"
         data = res.data[1]
         setInfo([...data])
-        console.log(colours)
     })
 
 }, [updatePage])
