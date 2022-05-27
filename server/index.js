@@ -16,20 +16,19 @@ app.get('/api', (req, res) => {
 })
 
 //Put request to the api storing the new stock status, as well as adding to the recent activity (up to 20)
-app.put('/api/update/:colour/:status/:comment', (req, res) => {
+app.put('/api/update/:colour/:status/:time/:comment', (req, res) => {
     if(colours[req.params.colour] === req.params.status){
         res.status(200).send("OK")
         return
     }
 
     colours[req.params.colour] = req.params.status
-    let now = new Date().toLocaleString()
 
     if(info.length<20){
-        info.push({colour: req.params.colour, status: req.params.status, time: now, comment: req.params.comment})
+        info.push({colour: req.params.colour, status: req.params.status, time: req.params.time, comment: req.params.comment})
     }else{
         info.shift()
-        info.push({colour: req.params.colour, status: req.params.status, time: now, comment: req.params.comment})
+        info.push({colour: req.params.colour, status: req.params.status, time: req.params.time, comment: req.params.comment})
     }
 
     res.status(200).send("OK")

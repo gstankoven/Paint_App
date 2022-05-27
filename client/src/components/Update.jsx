@@ -15,8 +15,9 @@ function Update(props) {
     //sends a put to the api to change a colours stock status
     const changeButton = () => {
 
+        let now = new Date().toLocaleString()
         //axios.put(`http://localhost:3001/api/update/${colour}/${status}/${encodeURIComponent(comment)}`)
-        axios.put(`https://garretts-paint-server.herokuapp.com/api/update/${colour}/${status}/${encodeURIComponent(comment)}`)
+        axios.put(`https://garretts-paint-server.herokuapp.com/api/update/${colour}/${status}/${encodeURIComponent(now)}/${encodeURIComponent(comment)}`)
         .then(res => {
             if(res.status === 200){
                 props.setupdate(false)
