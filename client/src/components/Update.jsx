@@ -16,7 +16,7 @@ function Update(props) {
     const changeButton = () => {
 
         let now = new Date().toLocaleString()
-        //axios.put(`http://localhost:3001/api/update/${colour}/${status}/${encodeURIComponent(comment)}`)
+        //axios.put(`http://localhost:3001/api/update/${colour}/${status}/${encodeURIComponent(now)}/${encodeURIComponent(comment)}`)
         axios.put(`https://garretts-paint-server.herokuapp.com/api/update/${colour}/${status}/${encodeURIComponent(now)}/${encodeURIComponent(comment)}`)
         .then(res => {
             if(res.status === 200){
